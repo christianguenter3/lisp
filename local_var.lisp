@@ -1,0 +1,5 @@
+(let ((a 10)
+      (b 33))
+ 	(print (+ a b))
+    (print (* a b))
+    (print (- b a)))
