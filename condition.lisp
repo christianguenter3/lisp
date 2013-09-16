@@ -16,3 +16,6 @@
   (cond ((eq person 'Christian) (setf *test* 'stupid-lisp-alien)
          						'(curse you lisp alien - you ate my pudding))
         (t   					'(why you eat my pudding stranger?))))
+
+(cond ((> 2500 1000) (print '(4 ist kleiner 5)))
+      (t (print 'Default)))
