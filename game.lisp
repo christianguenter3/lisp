@@ -34,13 +34,25 @@
 
 (defun describe-objects(location objects object-locations)
   (labels ((describe-object (object)
-                `(you see a ,object on the floor.)))
-  
+                `(you see a ,object on the floor.)))  
   (apply #'append (mapcar #'describe-object(objects-at location objects object-locations)))))
 
 (defun look()
-  (print(describe-location *location* *nodes*))
-  (print(describe-paths *location* *edges*))
-  (print(describe-objects *location* *objects* *object-locations*)))
+  (append (describe-location *location* *nodes*)
+  	      (describe-paths *location* *edges*)
+  		  (describe-objects *location* *objects* *object-locations*)))
 
-(look)
+(defun walk(direction)
+  (let ((next (find direction
+                    (cdr (assoc *location* *edges*))
+                    :key #'cadr)))
+  (if next 
+      (progn (setf *location* (car next))
+             (look))
+      '(You cannot go that way.))))
+
+(print(look))
+(print(walk 'west))
+(print(walk 'west))
+(print(walk 'east))
+(print(walk 'upstairs))
