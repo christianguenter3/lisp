@@ -1,0 +1,1 @@
+(print(mapcar (lambda (x) (/ x 2)) '(2 42 44)))
