@@ -6,7 +6,7 @@
 (defun next_fib()
   (let ((n_fib (+ *a* *b*)))  
     (cond ((< n_fib *upper-limit*)
-           (setf *a* *b*)
+           (setf *a* *b*)porp()
     	   (setf *b* n_fib)
            (unless (oddp n_fib)
 	           	   (setf *sum* (+ n_fib *sum*)))

@@ -11,4 +11,4 @@
   
 (setf *sum* 0)
 (3-or-5-divisor 999)
-(print *sum*)
+(print *sum*)		
