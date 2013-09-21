@@ -16,7 +16,7 @@
     (list (cons a b ) (cons b a))))
 
 (defun make-edge-list ()
-  (apply #'append (loop repeat *edge-num*
+  (apply #'append (loop repeat *edge-num* 
          		        collect (edge-pair (random-node) (random-node)))))
   
 (defun direct-edges (node edge-list)
