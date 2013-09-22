@@ -1,11 +1,12 @@
-(defun split (string)
-  (let ((s (prin1-to-string string)))    
-  	(loop for i from 0 to (1- (length s))
-          collect (subseq s i (1+ i)))))
+(defun split(s)
+  (map 'list
+       (lambda(c)
+         c)
+       s))
 
 (defun quer-sum(n)
-  (apply #'+ (mapcar (lambda(x)
-                        (parse-integer x))
+  (reduce #'+ (mapcar (lambda(x)
+                        (char-int x))
                       (split n))))
 
-(print (quer-sum (expt 2 1000)))
+(print (quer-sum (prin1-to-string (expt 2 1000))))

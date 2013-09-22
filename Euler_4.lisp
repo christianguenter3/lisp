@@ -3,7 +3,7 @@
   	(equal (reverse s) s)))
 
 (defun number-generator()
-  (loop for i from 1 to 999
+  (loop for i from 1 to 99
         collect i))
 
 (defun products()
@@ -20,11 +20,11 @@
           		(products))))
 
 (defun find-max()
-  (let* ((max 0))
-    (mapcar(lambda (x) 
-             (if (> (cdr x) max)
-                 (setf max (cdr x))))
-           (highest-product))
-  	max))
+  (reduce (lambda (max item)
+            (if (> (cdr item) max)
+                (cdr item)
+             max))
+          (highest-product)
+          :initial-value 0))
 
 (print (find-max))
