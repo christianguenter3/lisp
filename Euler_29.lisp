@@ -1,12 +1,14 @@
+(defun gen(a b)
+  (loop for i from a to b
+	        collect i))		
+
 (defun integer-cominations(a b)
   (let ((comb nil))
 	  (mapc (lambda (x)
 	          (mapc (lambda (y)
 	            			(push (cons x y) comb))
-	            	(loop for i from a to b
-	                  		  collect i)))
-	   (loop for i from a to b
-	               collect i))
+	            	(gen a b)))
+	   (gen a b))
    comb))
 
 (defun powers(list)

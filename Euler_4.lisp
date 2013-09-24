@@ -1,6 +1,4 @@
-(defun is-palin(number)
-  (let ((s (prin1-to-string number)))
-  	(equal (reverse s) s)))
+(load "C:\\Users\\Guenterc\\Documents\\lisp\\palin")
 
 (defun number-generator()
   (loop for i from 1 to 99
