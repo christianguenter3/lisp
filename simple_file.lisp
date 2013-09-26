@@ -8,5 +8,5 @@
                    :direction :output
                    :if-exists :supersede)                                   
                 (funcall thunk)))
-(to-file "C:\\Users\\Guenterc\\Documents\\lisp\\testfile.txt" 
-         (lambda() (print-something)))
+;(to-file "C:\\Users\\Guenterc\\Documents\\lisp\\testfile.txt" 
+         ;(lambda() (print-something)))
