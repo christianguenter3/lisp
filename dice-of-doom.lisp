@@ -1,3 +1,5 @@
+(load "C:\\Users\\Guenterc\\Documents\\lisp\\lazy")
+
 (defparameter *num-players* 2)
 (defparameter *max-dice* 3)
 (defparameter *board-size* 3)

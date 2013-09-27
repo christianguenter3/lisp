@@ -63,44 +63,6 @@
 (defun inventory()
   (cons 'items(objects-at 'body *objects* *object-locations*)))
 
-(defun have (object)
-  (member object (cdr (inventory))))
-
-(defparameter *chain-welded* nil)
-
-(game-action weld chain bucket attic
-             (if (and (have bucket)
-                      (not *chain-welded*)
-                      (progn (setf *chain-welded* 't)
-                             '(the chain is now securely welded to the bucket.)))
-                 '(You cannot weld like that)))
-
-(defparameter *bucket-filled* nil)
-
-(game-action dunk bucket well garden
-          (if *chain-welded*
-            (progn (setf *bucket-filled* 't)
-                   '(the bucket is now full of water))
-            '(the water level is too low to reach.)))
-
-(defmacro game-action (command subj obj place &body body)
-  `(progn (defun ,command (subject object)
-            (if (and (eq *location* ',place)
-                     (eq subject ',subj)
-                     (eq object ',obj)
-                     (have ',subj))
-                ,@body
-            '(i cannot command like that.)))
-          (pushnew ',command *allowed-commands*)))
-
-(game-action splash bucket wizard living-room
-             (cond ((not *bucket-filled*) '(the bucket has nothin in it))
-                   ((have 'frog ) '(the wizard awakens and sees that you stole his frog.
-                                    he is so upset he banishers you to the netherworlds
-                                    -you lose! The end.))
-                   (t '(the wizard awakens from his slumber and greets you warmly.
-                        he hands you the magic low-carb dobut - you win! the end.))))
-
 (defun game-repl()
   (let ((cmd (game-read)))
     (print cmd)
