@@ -146,7 +146,12 @@
                                                   (caddr tree))
                                  (lazy-mapcar #'caar (caddr tree))))))) 
 
+(defun test-handler (path header params)
+  (print path)
+  (print header)
+  (print params))
+
 ;(write-random-file (lambda () (svg 100 100 (draw-die-svg 50 50 '(255 0 0 )))))
 ;(write-random-file (lambda () (svg *board-width* *board-height* (draw-board-svg (gen-board) nil nil)))) 
-;(serve #'dod-request-handler)
-
+(serve #'dod-request-handler)
+;(serve #'test-handler)
