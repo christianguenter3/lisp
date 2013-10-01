@@ -192,4 +192,4 @@
 
 
 ;(play-vs-human (game-tree (gen-board) 0 0 t))
-(play-vs-computer (game-tree (gen-board) 0 0 t))
+;(play-vs-computer (game-tree (gen-board) 0 0 t))

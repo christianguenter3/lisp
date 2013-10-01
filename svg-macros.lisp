@@ -14,6 +14,7 @@
 	col))
 
 (defun svg-style (color)
+  	(print color)
 	(format nil
 		"~{fill:rgb(~a,~a,~a);stroke:rgb(~a,~a,~a)~}"
 		(append color
@@ -50,12 +51,12 @@
 ; 								(circle '(100 . 100) 50 '(0 0 255))
 ; 								(circle '(200 . 200) 100 '(255 128 128)))))
 
-(write-random-file (lambda () (svg 300 300
-								(loop repeat 10
-									do (polygon (append '((0 . 200))
-														(loop for x 
-															  for y in (random-walk 100 400)
-															  collect (cons x y))
-														'((400 . 200)))
-												(loop repeat 3
-													collect (random 256)))))))
+; (write-random-file (lambda () (svg 300 300
+; 								(loop repeat 10
+; 									do (polygon (append '((0 . 200))
+; 														(loop for x 
+; 															  for y in (random-walk 100 400)
+; 															  collect (cons x y))
+; 														'((400 . 200)))
+; 												(loop repeat 3
+; 													collect (random 256)))))))
